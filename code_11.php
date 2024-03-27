@@ -49,3 +49,19 @@ foreach ($arrayTest as $line) {
     fputcsv($file, $line, ';');
 }
 fclose($file);
+
+
+// JSON files
+// read
+$jsonFile = './folder/example.json';
+$res = file_get_contents($jsonFile);
+$data = json_decode($res, true);
+print_r($data);
+
+//and write
+$jsonData = json_encode($data);
+$jsonFileNew = './folder/example_new.json';
+$res = file_put_contents($jsonFileNew, $jsonData);
+if ($res) {
+    echo "JSON file writting are success!\n";
+}
